@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 
 // الاتصال بقاعدة بيانات MongoDB السحابية
-mongoose.connect('mongodb+srv://save:save1@cluster0.pwg3bgc.mongodb.net/medicineDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://save:save1@cluster0.pwg3bgc.mongodb.net/medicineDB')
   .then(() => console.log('Connected to MongoDB Cloud'))
   .catch(err => console.error('MongoDB connection error:', err));
 
@@ -42,13 +42,13 @@ app.get('/', (req, res) => {
   if (req.session.isAdmin) {
     res.redirect('/admin/dashboard');
   } else {
-    res.sendFile(path.join(__dirname, '/public/search.html')); // صفحة البحث للمستخدم العادي
+    res.sendFile(path.join(__dirname, 'search.html')); // صفحة البحث للمستخدم العادي
   }
 });
 
 // صفحة تسجيل الدخول للأدمن
 app.get('/admin/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/login.html'));
+  res.sendFile(path.join(__dirname, 'login.html'));
 });
 
 // معالجة تسجيل الدخول للأدمن
@@ -65,7 +65,7 @@ app.post('/admin/login', (req, res) => {
 // لوحة التحكم للأدمن
 app.get('/admin/dashboard', (req, res) => {
   if (req.session.isAdmin) {
-    res.sendFile(path.join(__dirname, '/public/dashboard.html'));
+    res.sendFile(path.join(__dirname, 'dashboard.html'));
   } else {
     res.redirect('/admin/login');
   }
