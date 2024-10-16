@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الأدمن</title>
+</head>
+<body>
+    <h1>لوحة تحكم الأدمن</h1>
+    <form method="POST" action="/admin/add-medicine">
+        <input type="text" name="name" placeholder="اسم العلاج" required>
+        <textarea name="benefits" placeholder="استفادة العلاج" required></textarea>
+        <textarea name="sideEffects" placeholder="الأعراض الجانبية"></textarea>
+        <textarea name="dosage" placeholder="الجرعة والاستخدام"></textarea>
+        <button type="submit">إضافة العلاج</button>
+    </form>
+
+    <h3><a href="/admin/logout">تسجيل الخروج</a></h3>
+</body>
+</html>
